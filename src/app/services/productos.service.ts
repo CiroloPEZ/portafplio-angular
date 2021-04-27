@@ -24,4 +24,7 @@ productos: Producto[] = [];
            this.cargando = false;
         });
    }
+   getProducto (id: string){
+        return   this.http.get(`https://angular-html-f1bdf-default-rtdb.firebaseio.com/productos/${ id }.json`);
+   }
 }
