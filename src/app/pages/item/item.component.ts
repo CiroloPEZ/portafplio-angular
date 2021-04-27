@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
+import { ProductoDescripcion } from '../../interfaces/producto-descripcion.interface';
+
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+     producto: any = {};
 
   constructor( private route: ActivatedRoute,
               public productoService: ProductosService  ) { }
@@ -16,8 +19,11 @@ export class ItemComponent implements OnInit {
            .subscribe(parametros =>{
                this.productoService.getProducto(parametros['id'])
                //Para que yo lo pueda llamar
-               .subscribe( producto =>{
+               .subscribe( producto =>  {
+                 // A qui si tiene datos
                   console.log(producto);
+                  //Asignar datos a la pagina html
+                    this.producto = producto;
                });
                        });
   }
