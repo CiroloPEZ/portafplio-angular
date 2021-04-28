@@ -10,6 +10,7 @@ import { ProductoDescripcion } from '../../interfaces/producto-descripcion.inter
 })
 export class ItemComponent implements OnInit {
      producto: any = {};
+     id: any = {};
 
   constructor( private route: ActivatedRoute,
               public productoService: ProductosService  ) { }
@@ -23,6 +24,7 @@ export class ItemComponent implements OnInit {
                  // A qui si tiene datos
                   console.log(producto);
                   //Asignar datos a la pagina html
+                  this.id = parametros['id'];
                     this.producto = producto;
                });
                        });
