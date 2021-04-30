@@ -56,18 +56,16 @@ productosFiltrado: Producto[] = [];
    }
    private filtrarProductos( termino: string ){
      // console.log(this.productos);
-this.productosFiltrado = [];
+           this.productosFiltrado = [];
+                     //Para que sea mas sensible al momento de buscar
+                  termino = termino.toLocaleLowerCase();
 
-termino = termino.toLocaleLowerCase();
-
-this.productos.forEach( prod => {
-
-const tituloLower = prod.titulo.toLocaleLowerCase();
-
-if ( prod.categoria.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0  ) {
-this.productosFiltrado.push( prod );
-}
-
+             this.productos.forEach( prod => {
+                  const tituloLower = prod.titulo.toLocaleLowerCase();
+                  //Aqui buscamos por categoria y por titulo
+             if ( prod.categoria.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0  ) {
+                     this.productosFiltrado.push( prod );
+               }
 });
 
    }
